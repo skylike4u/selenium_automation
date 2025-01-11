@@ -1,3 +1,4 @@
+# 웹사이트(온통청년) 스크래핑
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
