@@ -12,7 +12,7 @@ from urllib.request import urlretrieve  # 다운로드
 # from pprint import pprint
 
 
-# 네이버 고슴도치 검색url
+# 네이버 이미지 검색url
 keyword = input("수집할 이미지 : ")
 url = "https://search.naver.com/search.naver?ssc=tab.image.all&where=image&query={}".format(
     keyword
@@ -56,6 +56,8 @@ if not os.path.isdir("./{}".format(keyword)):  # 폴더가 겹치는지 확인
     os.mkdir("./{}".format(keyword))
 print("[폴더생성]")
 
+# links 변수 데이터 확인
+print(links)
 
 # 다운로드 - 파일이름(확장자), 파일저장위치
 ## rfind() : 뒤에서부터 탐색해서 인덱스 반환 / find() : 앞에서부터 탐색해서 인덱스 반환
@@ -72,7 +74,7 @@ for index, link in enumerate(links):
     # print(filetype)
     # 키워드가 들어갈 자리는 0번으로 두고, index가 들어갈 자리를 1번으로 둘건데 001, 002 등 이런식으로 세자리 정수를 만듬(03d). 2번 자리에는 확장자가 들어감
     filename = "./{0}/{0}{1:03d}{2}".format(keyword, index, filetype)
-    # ulretrieve(경로URL, 저장 파일 경로) 함수를 이용해서 다운로드
+    # urlretrieve(경로URL, 저장 파일 경로) 함수를 이용해서 다운로드
     urlretrieve(link, filename)
 
 # tqdm 사용하는 버전
